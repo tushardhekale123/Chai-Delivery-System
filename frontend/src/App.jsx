@@ -23,7 +23,7 @@ function App() {
           </a>
 
           <div className="nav-links">
-            <a className="active" href="#intro">Intro</a>
+            <a className href="#intro">Intro</a>
             <a href="#process">Process</a>
             <a href="#flavours">Flavours</a>
             <a href="#places">Places</a>
