@@ -1,4 +1,5 @@
 import "./App.css";
+import { useState } from "react";
 
 const chaiMoments = [
   ["🥺", "Had a bad day? Have a", "kadak masala chai"],
@@ -8,6 +9,8 @@ const chaiMoments = [
 ];
 
 function App() {
+  const [started, setStarted] = useState(false);
+  
   return (
     <main className="chai-page">
       <div className="orb orb-one" />
@@ -48,9 +51,12 @@ function App() {
               Masala chai, a desi way to brighten your mood.
             </p>
 
-            <a className="order-button" href="#order">
-              Order now <span>→</span>
-            </a>
+            <button
+               className="order-button"
+               onClick={() => setStarted(true)}
+>
+               Order now <span>→</span>
+               </button>
           </div>
 
           <div className="tea-visual" aria-hidden="true">
