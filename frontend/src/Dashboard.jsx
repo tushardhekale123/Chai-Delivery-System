@@ -19,7 +19,52 @@ function Dashboard() {
         <a className="logout">↪ Logout</a>
 
       </aside>
+ 
+     <section className="main-content">
 
+        {/* Top Bar */}
+        <div className="top-bar">
+
+          {/* Location */}
+          <div className="location">
+            <span>📍</span>
+
+            <div>
+              <small>Deliver to</small>
+              <p>Connaught Place, New Delhi</p>
+            </div>
+          </div>
+
+
+          {/* Search */}
+          <div className="search-box">
+
+            <input
+              type="text"
+              placeholder="Search your favourite chai..."
+            />
+
+            <span>🔍</span>
+
+          </div>
+
+
+          {/* Right Side */}
+          <div className="profile-area">
+
+            <span className="notification">
+              🔔
+            </span>
+
+            <button className="profile">
+              AS
+            </button>
+
+          </div>
+
+        </div>
+
+      </section>
     </main>
   );
 }
