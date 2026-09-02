@@ -127,6 +127,7 @@ function App() {
         <div className="table-rings" />
 
       </section>
+      
 
     </main>
   );
