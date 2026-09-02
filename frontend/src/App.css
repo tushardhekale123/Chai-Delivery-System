@@ -511,3 +511,74 @@ h1 span {
     height: 190px;
   }
 }
+
+
+/* ..........Dashboard......... */
+
+.dashboard {
+  min-height: 100vh;
+  background: #f8f1e7;
+  padding: 20px;
+}
+
+.sidebar {
+  width: 220px;
+  min-height: calc(100vh - 40px);
+  padding: 30px 20px;
+  background: #fffaf2;
+  border-radius: 24px;
+
+  display: flex;
+  flex-direction: column;
+}
+
+.sidebar h2 {
+  margin: 0 0 40px;
+  color: #3b200d;
+  font-size: 22px;
+  font-weight: 800;
+}
+
+.sidebar h2 span {
+  color: #d98d25;
+}
+
+.sidebar nav {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.sidebar nav a {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 14px;
+  border-radius: 12px;
+  color: #4d3829;
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.sidebar nav a.active {
+  background: #fff0d8;
+  color: #c87918;
+  font-weight: 700;
+}
+
+.sidebar nav a:hover {
+  background: #fff4e5;
+  transform: translateX(2px);
+}
+
+.logout {
+  display: block;
+  margin-top: auto;
+  padding: 12px 14px;
+  color: #4d3829;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+}
