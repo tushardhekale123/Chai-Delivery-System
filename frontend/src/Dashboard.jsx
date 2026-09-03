@@ -1,4 +1,37 @@
+import { useState } from "react";
 function Dashboard() {
+
+  const [cart, setCart] = useState({
+    masala: 0,
+    adrak: 0,
+    elaichi: 0,
+  });
+
+  const addItem = (item) => {
+    setCart({
+      ...cart,
+      [item]: cart[item] + 1,
+    });
+  };
+
+  const removeItem = (item) => {
+    if (cart[item] > 0) {
+      setCart({
+        ...cart,
+        [item]: cart[item] - 1,
+      });
+    }
+  };
+
+  const cartCount =
+    cart.masala + cart.adrak + cart.elaichi;
+
+  const subtotal = cartCount * 29;
+
+  const deliveryFee = cartCount > 0 ? 15 : 0;
+
+  const total = subtotal + deliveryFee;
+
   return (
     <main className="dashboard">
 
@@ -19,10 +52,18 @@ function Dashboard() {
           <a>👤 Profile</a>
         </nav>
 
-        <a className="logout">↪ Logout</a>
+        <a className="logout"> ↪ Logout </a>
 
-      </aside>
+        <div className="chai-time-card">
+        <h3>Chai Time</h3>
+        <p>Is Anytime</p>
 
+        <img
+        src="/src/assets/chai-time.jpg"
+        alt="Chai Time" />
+        </div>
+      
+       </aside>
 
       {/* Main Content */}
       <section className="main-content">
@@ -30,18 +71,18 @@ function Dashboard() {
         {/* Top Bar */}
         <div className="top-bar">
 
-          {/* Location */}
           <div className="location">
+
             <span>📍</span>
 
             <div>
               <small>Deliver to</small>
               <p>Connaught Place, New Delhi</p>
             </div>
+
           </div>
 
 
-          {/* Search */}
           <div className="search-box">
 
             <input
@@ -54,7 +95,6 @@ function Dashboard() {
           </div>
 
 
-          {/* Right Side */}
           <div className="profile-area">
 
             <span className="notification">
@@ -71,41 +111,55 @@ function Dashboard() {
 
 
         {/* Welcome Banner */}
-        <div className="welcome-banner">
+<div className="welcome-banner">
 
-          <div className="welcome-text">
+  <img
+    src="/src/assets/welcome-chai.jpg" alt="Chai"
+    className="welcome-banner-img"
+  />
 
-            <p>WELCOME BACK, AS 👋</p>
+  <div className="welcome-overlay"></div>
 
-            <h1>
-              Chai ho jaye? ☕
-            </h1>
+  <div className="welcome-text">
 
-            <span>
-              Garma garam chai, ab aapke darwaze par!
-            </span>
+    <p>WELCOME BACK, AS 👋</p>
 
-            <button>
-              Order Now →
-            </button>
+    <h1>Chai ho jaye ? ☕</h1>
 
-          </div>
+    <span>
+      garma garam chai, ab aapke darwaze par!
+    </span>
 
+    <button>
+      Order Now <span>→</span>
+    </button>
 
-          <div className="welcome-chai">
-            ☕
-          </div>
+  </div>
 
-        </div>
+  <div className="banner-dots">
+    <span className="active"></span>
+    <span></span>
+    <span></span>
+  </div>
+
+</div>
 
 
         {/* Categories */}
         <div className="categories-section">
 
           <div className="section-heading">
-            <h2>Categories</h2>
-            <span>View all</span>
+
+            <h2>
+              Categories
+            </h2>
+
+            <span>
+              View all
+            </span>
+
           </div>
+
 
           <div className="category-list">
 
@@ -149,81 +203,358 @@ function Dashboard() {
         </div>
 
 
-        {/* Popular Chai */}
-        <div className="popular-section">
+        {/* Dashboard Bottom Area */}
+        <div className="dashboard-bottom">
 
-          <div className="section-heading">
-            <h2>Popular Chai</h2>
-            <span>View all</span>
+
+          {/* Popular Chai */}
+          <div className="popular-section">
+
+            <div className="section-heading">
+
+              <h2>
+                Popular Chai
+              </h2>
+
+              <span>
+                View all
+              </span>
+
+            </div>
+
+
+            <div className="chai-list">
+
+
+              {/* Masala Chai */}
+              <div className="chai-card">
+
+                <div className="chai-image">
+
+                  <img
+                    src="/src/assets/masala-chai.jpg"
+                    alt="Masala Chai"
+                  />
+
+                </div>
+
+                <h3>
+                  Masala Chai
+                </h3>
+
+                <p>
+                  Classic masala chai with perfect blend of spices.
+                </p>
+
+
+                <div className="chai-bottom">
+
+                  <strong>
+                    ₹29
+                  </strong>
+
+                  <span>
+                    ⭐ 4.8
+                  </span>
+
+                  <button
+                    onClick={() => addItem("masala")}
+                  >
+                    +
+                  </button>
+
+                </div>
+
+              </div>
+
+
+              {/* Adrak Chai */}
+              <div className="chai-card">
+
+                <div className="chai-image">
+
+                  <img
+                    src="/src/assets/adrak-chai.jpg"
+                    alt="Adrak Chai"
+                  />
+
+                </div>
+
+                <h3>
+                  Adrak Chai
+                </h3>
+
+                <p>
+                  Strong and refreshing ginger chai.
+                </p>
+
+
+                <div className="chai-bottom">
+
+                  <strong>
+                    ₹29
+                  </strong>
+
+                  <span>
+                    ⭐ 4.7
+                  </span>
+
+                  <button
+                    onClick={() => addItem("adrak")}
+                  >
+                    +
+                  </button>
+
+                </div>
+
+              </div>
+
+
+              {/* Elaichi Chai */}
+              <div className="chai-card">
+
+                <div className="chai-image">
+
+                  <img
+                    src="/src/assets/elaichi-chai.jpg"
+                    alt="Elaichi Chai"
+                  />
+
+                </div>
+
+                <h3>
+                  Elaichi Chai
+                </h3>
+
+                <p>
+                  Aromatic elaichi chai for your mood.
+                </p>
+
+
+                <div className="chai-bottom">
+
+                  <strong>
+                    ₹29
+                  </strong>
+
+                  <span>
+                    ⭐ 4.9
+                  </span>
+
+                  <button
+                    onClick={() => addItem("elaichi")}
+                  >
+                    +
+                  </button>
+
+                </div>
+
+              </div>
+
+            </div>
+
           </div>
 
-          <div className="chai-list">
 
-            <div className="chai-card">
+          {/* Cart */}
+          <div className="cart-box">
 
-              <div className="chai-image">
-                <img src="/src/assets/masala-chai.jpg" alt="Masala Chai" />
+            <div className="cart-header">
+
+              <h2>
+                🛒 Your Cart
+              </h2>
+
+              <span>
+                {cartCount} Items
+              </span>
+
+            </div>
+
+
+            {/* Masala Cart Item */}
+            {cart.masala > 0 && (
+
+              <div className="cart-item">
+
+                <div>
+                  <h4>Masala Chai</h4>
+                  <span>₹29 each</span>
+                </div>
+
+                <div className="quantity">
+
+                  <button
+                    onClick={() => removeItem("masala")}
+                  >
+                    −
+                  </button>
+
+                  <span>
+                    {cart.masala}
+                  </span>
+
+                  <button
+                    onClick={() => addItem("masala")}
+                  >
+                    +
+                  </button>
+
+                </div>
+
               </div>
 
-              <h3>Masala Chai</h3>
+            )}
 
-              <p>
-                Classic masala chai with perfect blend of spices.
-              </p>
 
-              <div className="chai-bottom">
-                <strong>₹29</strong>
-                <span>⭐ 4.8</span>
-                <button>+</button>
+            {/* Adrak Cart Item */}
+            {cart.adrak > 0 && (
+
+              <div className="cart-item">
+
+                <div>
+                  <h4>Adrak Chai</h4>
+                  <span>₹29 each</span>
+                </div>
+
+                <div className="quantity">
+
+                  <button
+                    onClick={() => removeItem("adrak")}
+                  >
+                    −
+                  </button>
+
+                  <span>
+                    {cart.adrak}
+                  </span>
+
+                  <button
+                    onClick={() => addItem("adrak")}
+                  >
+                    +
+                  </button>
+
+                </div>
+
+              </div>
+
+            )}
+
+
+            {/* Elaichi Cart Item */}
+            {cart.elaichi > 0 && (
+
+              <div className="cart-item">
+
+                <div>
+                  <h4>Elaichi Chai</h4>
+                  <span>₹29 each</span>
+                </div>
+
+                <div className="quantity">
+
+                  <button
+                    onClick={() => removeItem("elaichi")}
+                  >
+                    −
+                  </button>
+
+                  <span>
+                    {cart.elaichi}
+                  </span>
+
+                  <button
+                    onClick={() => addItem("elaichi")}
+                  >
+                    +
+                  </button>
+
+                </div>
+
+              </div>
+
+            )}
+
+
+            {/* Empty Cart */}
+            {cartCount === 0 && (
+
+              <div className="empty-cart">
+
+                <span>☕</span>
+
+                <p>
+                  Your cart is empty
+                </p>
+
+                <small>
+                  Add your favourite chai
+                </small>
+
+              </div>
+
+            )}
+
+
+            {/* Bill */}
+            <div className="cart-bill">
+
+              <div>
+                <span>Subtotal</span>
+                <strong>₹{subtotal}</strong>
+              </div>
+
+              <div>
+                <span>Delivery Fee</span>
+                <strong>₹{deliveryFee}</strong>
+              </div>
+
+              <hr />
+
+              <div className="total-row">
+                <span>Total</span>
+                <strong>₹{total}</strong>
               </div>
 
             </div>
 
 
-            <div className="chai-card">
-
-              <div className="chai-image">
-                ☕
-              </div>
-
-              <h3>Adrak Chai</h3>
-
-              <p>
-                Strong and refreshing ginger chai.
-              </p>
-
-              <div className="chai-bottom">
-                <strong>₹29</strong>
-                <span>⭐ 4.7</span>
-                <button>+</button>
-              </div>
-
-            </div>
-
-
-            <div className="chai-card">
-
-              <div className="chai-image">
-                ☕
-              </div>
-
-              <h3>Elaichi Chai</h3>
-
-              <p>
-                Aromatic elaichi chai for your mood.
-              </p>
-
-              <div className="chai-bottom">
-                <strong>₹29</strong>
-                <span>⭐ 4.9</span>
-                <button>+</button>
-              </div>
-
-            </div>
+            {/* Place Order */}
+            <button className="place-order">
+              Place Order →
+            </button>
 
           </div>
 
         </div>
+
+
+        {/* Offer */}
+        <div className="offer-banner">
+
+          <div>
+
+            <span>
+              🎁 SPECIAL OFFER
+            </span>
+
+            <h3>
+              Flat 20% OFF on your first order!
+            </h3>
+
+            <p>
+              Use code WELCOME20 at checkout
+            </p>
+
+          </div>
+
+          <button>
+            Copy Code
+          </button>
+
+        </div>
+
 
       </section>
 
