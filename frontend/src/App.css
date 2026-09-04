@@ -1402,3 +1402,77 @@ h1 span {
   font-size: 13px;
   z-index: 2;
 }
+
+/* FINAL RESPONSIVE FIX */
+
+@media (max-width: 900px) {
+  .dashboard {
+    grid-template-columns: 1fr;
+  }
+
+  .sidebar {
+    display: none;
+  }
+
+  .main-content {
+    width: 100%;
+    padding: 18px;
+  }
+
+  .cart-box {
+    width: 100%;
+    margin-top: 20px;
+  }
+
+  .dashboard-content {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 600px) {
+  .main-content {
+    padding: 12px;
+  }
+
+  .welcome-banner {
+    min-height: 190px;
+  }
+
+  .welcome-text h1 {
+    font-size: 24px;
+  }
+
+  .welcome-text span {
+    font-size: 10px;
+  }
+
+  .chai-list {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+
+  .chai-card {
+    padding: 8px;
+  }
+
+  .chai-image {
+    height: 120px;
+  }
+
+  .chai-card h3 {
+    font-size: 13px;
+  }
+
+  .offer-banner {
+    padding: 14px;
+  }
+
+  .offer-banner img {
+    width: 100px;
+    height: 95px;
+  }
+
+  .offer-text h2 {
+    font-size: 20px;
+  }
+}
